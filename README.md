@@ -1,6 +1,6 @@
 # System Librarianship SP2025
 
-This is a repository to documenty my work in **LIS 690** at [UK](https://ci.uky.edu/sis/academics/library-science "UK Library Science").
+This is a repository to document my work in **LIS 690** at [UK](https://ci.uky.edu/sis/academics/library-science "UK Library Science").
 
 ## Timeline
 1. Systems Librarianship
