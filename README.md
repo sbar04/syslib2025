@@ -25,7 +25,7 @@ This is a repository to document my work in **LIS 690** at [UK](https://ci.uky.e
     - WEEK 9 Introduction to Relational Databases (RDBMS)
     - WEEK 10 Creating a Bare Bones OPAC
     - WEEK 11 Creating a Bare Bones Cataloging Module
-7. Library Website Project
+6. Library Website Project
     - WEEK 12 Install WordPress
     - WEEK 13 Install Omeka
     - WEEK 14 Install Koha
