@@ -1,0 +1,25 @@
+Overhall of GitHub repo!!
+Made an images repository on GitHub (remotely) by using a placeholder.txt
+Added in a file from my personal computer (didn't know how to do this from my VM without a link to said image
+Pulled those changes to my local system
+
+Generally learned more CLI commands including stat command
+Used that to get info on an old entry_one.md file
+Used that info to rename the file when I moved it to my new logs folder
+
+I had to do multiple git pushes to sync these changes!
+Edited README.md in nano, but I needed the preview feature while practicing with markdown
+
+git add README.me; commited it; and pushed to main
+
+THEN
+
+git commit -a; this deleted my entry_one file, and placeholder.txt in Image directory
+
+Still could not see the renamed entry_one file in logs repository 
+git add logs; commit and pushed to origin main
+
+All seemed to be caught up and synched!
+
+Edited README in GitHub remotely for ease with markdown.
+Commited changes to links, formatting of timeline list, and added photo + quote
