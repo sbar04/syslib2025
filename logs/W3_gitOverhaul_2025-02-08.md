@@ -1,4 +1,4 @@
-#Overhaul of GitHub repo!!
+# Overhaul of GitHub repo!!
 
 Major Changes:
 * Made an images repository on GitHub (remotely) by using a placeholder.txt
@@ -29,19 +29,19 @@ Edited README in GitHub remotely for ease with markdown.
 Commited changes to links, formatting of timeline list, and added photo + quote
 
 ---
-#Notes for Future
+# Notes for Future
 * Git configuration following textbook was easy
 * Generated SSH key instead of HTTPS which is another option on Git
 * Cloned repo; seemed to work
 
-##Pushing to Git
+## Pushing to Git
 * `git status` will show how many files I have untracked
 * `git add fileName` or `git add .` (which adds everything that has had changes since last push)
 * `git commit -m "commit message here"` the -m lets you write the commit message in the command line; this is also why I configured a text editor when doing git configs
 * A commit provides a snapshot of my files
 * `git push` actually pushes it to GitHub 
 
-##Pulling from GitHub
+## Pulling from GitHub
 * If I edit in GitHub rather than the CLI, I need to pull those changes to my machine
 * `git pull` will do that
 * need to pull before I can push again; keep it clean. Work in the CLI.
