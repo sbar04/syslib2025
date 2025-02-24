@@ -57,6 +57,7 @@ Then use `jq` command for better readability
 
 There are a lot of things to learn here to normalize the data and make everything more readable.
 But, even just connecting via SRU is making me feel like this:
+
 ![Hacker Voice I'm in](Images/Hacking.jpg)
 
 ### Loose Goals
