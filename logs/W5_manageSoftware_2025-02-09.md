@@ -1,10 +1,10 @@
-#Managing Software
+# Managing Software
 This week I learned about managaing software with `sudo` commands and apt installer
 
-##sudo
+## sudo
 So as a user we don’t control the root directory, because user root (superuser) does that, but `sudo` command gives us that power
 
-##apt
+## apt
 Package manager that handles installation, upgrades, and uninstalls software
 
 ### Locate and Install Software
@@ -40,7 +40,7 @@ sudo apt clean
 ```
 ---
 
-##Fun Finds
+## Fun Finds
 * Enjoy having `tree` installed for easier file navigation
 * `tldr` is making learning command options way easier; `man` is still useful but I find myself using `tldr` more now
 * used `duf` for a bit to track my disk usage
