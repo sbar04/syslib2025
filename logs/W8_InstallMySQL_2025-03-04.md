@@ -1,8 +1,9 @@
 # Week 8: Installing MySQL
 Final ingredient to the LAMP stack!
+
 ![Sandwich Stacker](../Images/sandwich_stacker.jpg)
 
- MySQL is an open-source relational database management system. <abbr title="Structured Query Language">SQL</abbr> is a domain specific language that manages data. Relational databases handle tables of data that share a common field, and therefore are *related*.
+ MySQL is an open-source relational database management system. <abbr title="Structured Query Language">SQL</abbr> (Structured Query Language) is a domain specific language that manages data. Relational databases handle tables of data that share a common field, and therefore are *related*.
 
 ## Installing MySQL
 Update machine:
