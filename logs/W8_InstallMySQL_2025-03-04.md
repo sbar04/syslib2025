@@ -142,7 +142,7 @@ Could limit certain user accounts to only be able to SELECT, for example. If you
 
 Exit from the root MySQL user:
 ```
-mysql> \`
+mysql> \q
 ```
 ## Log In as Regular User and Create Tables
 As a default, the MySQL command line prompt is bare-bones. This can be changed in the `.bashrc` file. This is a hidden file in the ~home directory. See it using `ls -a`. This is the configuration for the `bash` shell
@@ -171,7 +171,16 @@ mysql -u opacuser -p
 *This logs us in as the user `opacuser` and the `-p` instructs MySQL to request the pass for the user as it is required. Without a `-p` I get:*
 >ERROR 1045 (28000): Access denied for user 'opacuser'@'localhost' (using password: NO)
 
+*If the password is typed in wrong, the following is returned:*
+>ERROR 1045 (28000): Access denied for user 'opacuser'@'localhost' (using password: YES)
+
 Enter the password. It will look like nothing is happening, but if entered correctly it will let you into MySQL. 
+
+*If the password is typed in wrong, the following is returned:*
+175 >ERROR 1045 (28000): Access denied for user 'opacuser'@'localhost' (using password: YES)
+176 
+
+Successful login takes me to the MySQL prompt line:
 ```
 [(none)]> show databases;
 ```
