@@ -40,6 +40,7 @@ Commited changes to links, formatting of timeline list, and added photo + quote
 * `git commit -m "commit message here"` the -m lets you write the commit message in the command line; this is also why I configured a text editor when doing git configs
 * A commit provides a snapshot of my files
 * `git push` actually pushes it to GitHub 
+* IF I accidentally stage something with `git add fileName`, undo it with `git restore --staged fileName`
 
 ## Pulling from GitHub
 * If I edit in GitHub rather than the CLI, I need to pull those changes to my machine
