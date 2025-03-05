@@ -151,7 +151,9 @@ mysql --version
 mysql  Ver 8.0.41-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
 ```
 The installation should have started and enabled the database server:
-```systemctl status mysql```
+```
+systemctl status mysql
+```
 *Still Loaded and Active!*
 
 Ran the post installation script to perform security checks and create the baseline configuration of MySQL:
