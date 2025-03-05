@@ -56,7 +56,7 @@ To see the default site using Firefox, Chrome, etc., find the system's external 
 
 If it does not open, double check that the URL is http, NOT https.
 
-The Apache2 Ubuntu Default Page provides a configuration overview and tell us the default __document root__ is /var/www.
+The Apache2 Ubuntu Default Page provides a configuration overview and tell us the default __document root__ is `/var/www`.
 
 ## Creating a Web page
 Remember that the web is, at its simplest, a filesystem that has been made available to the wide world. The web server is what provides access to part of the filesystem. That point of access is called the **document root**.

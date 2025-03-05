@@ -1,6 +1,6 @@
 # Week 8: Create MySQL Table and Connect with PHP
 
-Follows Week 8 Installing MySQL.
+Follows Week 8: Installing MySQL.
 
 ## Creating MySQL Tables
 Log in as a regular user:
@@ -23,7 +23,7 @@ Relational databases contain tables. A database in MySQL is similar to an overal
 Tables need to be composed well because the composition dictates how well data is described, and how tables connect and interact with (**relate to**) each other.  
 
 **To create a table:**
-**Don't copy the [opacdb] part, that is the line prompt and indicates I'm in the opacdb database within MySQL.*
+**Don't copy the [opacdb] part, that is the line prompt and indicates I'm in the `opacdb` database within MySQL.*
 ```
 [opacdb]> create table books (
         id int unsigned not null auto_increment,

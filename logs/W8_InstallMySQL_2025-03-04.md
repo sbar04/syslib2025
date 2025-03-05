@@ -153,7 +153,7 @@ Add the following to the bottom of the file:
 ```
 export MYSQL_PS1="[\d]> "
 ```
-This changes the password for the MySQL prompt for our `opacuser` account.
+_This changes MySQL prompt to reflect the database I am in._
 
  Then, save, exit, and source the file:
  ```
@@ -196,3 +196,7 @@ Select the `opacdb` database:
 [(none)]>: use opacdb
 ```
 This will result in "**Database changed**", and the new prompt is `[opacdb]>` to indicate we are in that database. 
+
+<hr>
+
+See the  W8_CreateTableConnectPHP log for the next steps!
