@@ -276,3 +276,10 @@ This should output HTML.
 
 #### Check It!
 Go to `ExternalIP/opac.php` in a web browser to see the results of this PHP script!
+
+## MySQL Help
+* `ctrl-c` cancels a command
+* `\e` brings up a CLI editor to write SQL statements in
+	* Mine defaulted to `vim`
+	* In the `bash` shell, I changed this with the following: `export EDITOR=nano`, and checked it with `echo $EDITOR`
+* `\g` executes the SQL statement 
