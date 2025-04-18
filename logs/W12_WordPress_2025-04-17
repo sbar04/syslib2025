@@ -1,0 +1,168 @@
+# Week 12: WordPress Installation 
+
+Download from [Wordpress.org](https://wordpress.org/) to get the version I can host from my Ubuntu server. This makes me responsible not only for the design of the website, but also the installation and maintenance of the software. 
+
+I read the [Security](https://wordpress.org/about/security/) page and the [Updating WordPress](https://wordpress.org/documentation/article/updating-wordpress/) page to familiarize myself with these topics for future use.
+
+My WordPress site will be the homepage and the digital front entrance to my library. From here, patrons can learn about the library and use links to access the Digital Library and OPAC.
+
+I made a snapshot backup of my server before starting this process. I also was sure to update my system before proceeding.
+```
+sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+sudo apt clean
+```
+
+## Installation
+### Step 1: Checking Requirements
+
+I won't be following the [WordPress installation guide](https://developer.wordpress.org/advanced-administration/before-install/howto-install/) exactly, but I read through that page and the [Before You Install](https://developer.wordpress.org/advanced-administration/before-install/) page before starting. 
+
+The server side requirements for Wordpress are listed as:
+* PHP 7.4 or greater
+* MySql 5.7 or greater
+* ~~HTTPS support~~*
+
+*\*I won't need HTTPS support, but this is listed on the Before You Install page*
+
+I checked the `--version`  for PHP and MySQL:
+```
+php --version
+mysql --version
+```
+I have PHP 8.1.2, and MySQL 8.0.41, both of which meet the requirements. 
+
+I also double checked my Ubuntu version:
+```
+cat /etc/issue.net
+```
+This confirmed I am running Ubuntu 22.04.5 LTS. 
+
+### Step 2: Download Dependencies
+WordPress is a complicated software that, like most software, requires dependencies to run. 
+
+Normally, I would install software with `apt`. Wordpress is available through `apt`, but this will cause issues with the Omeka installation next week. 
+
+Because I am not installing WordPress with `apt`, which would automatically check for and download necessary dependencies, I need to add additional PHP modules for WordPress to work first: 
+```
+sudo apt install php-curl php-xml php-imagick php-mbstring php-zip php-intl
+```
+I then restarted Apache2 and MySQL:
+```
+sudo systemctl restart apache2
+sudo systemctl restart mysql
+```
+While not a dependency, I also went ahead and downloaded `zip` to be able to *unzip* the WordPress package in the next step:
+```
+sudo apt install zip
+```
+
+### Step 3: Download WordPress
+I first changed to my Apache2 document root directory:
+```
+cd /var/www/html
+```
+To get the WordPress download, I went to [WordPress.org](https://wordpress.org/) and clikced "Get WordPress" in the top right corner. From this page, I copied the link from the "Download WordPress 6.8" button. 
+
+Back in my Ubuntu server, in the root directory, I used the `wget` network downloader to download the software from that link:
+```
+sudo wget https://wordpress.org/latest.zip
+```
+And then unzipped it:
+```
+sudo unzip latest.zip
+```
+This creates a new directory where the full pathway is `/var/www/html/wordpress`. 
+
+Because I changed the permissions (set the ****setgid bit**) in this directory last week, I can see with the `ls -l` command that the new wordpress directory is group owned by **www-data**. 
+
+### Step 4: Create a Database and User for WordPress
+Instead of using `phpMyAdmin` as described in the WordPress installation documentation, I used MySQL to create a database and a database user for WordPress. 
+
+This is identical to the processes outlined in Weeks 8 and 9. 
+
+First I switched to the Linux root user:
+```
+sudo su
+```
+And logged into MySQL as the root user:
+```
+mysql -u root
+```
+In the MySQL command prompt, I created a new 'wordpress' user and gave the account a password (not Xs):
+```
+create user 'wordpress'@'localhost' identified by 'XXXXXXXXX';
+```
+I created a `wordpress` database:
+```
+create database wordpress;
+```
+I granted all privileges to the wordpress user on this new database:
+```
+grant all privileges on wordpress.* to 'wordpress'@'localhost';
+```
+Checked to make sure the database was created:
+```
+show databases;
+```
+And exited:
+```
+\q
+```
+
+I also `exit`ed out of the root user in my shell back to my normal user account.
+
+### Step 5: Configuration
+Like in Week 8 when I set up the `opacdb` database, I need to set up the password for my new `wordpress` database and user in the `login.php` file. 
+
+The analogous file for WordPress is called `wp-config.php`. 
+
+In the `/var/www/html/wordpress` directory, I first made a backup of this file in case I need a clean copy:
+```
+sudo cp wp-config-sample.php wp-config.php`
+```
+I then edited that file in `nano`, adding in the database name, user, and password to the appropriate fields. 
+```
+sudo nano wp-config.php
+```
+For example, I changed the following:
+```
+'DB_NAME', 'database_name_here' );
+```
+to 
+```
+'DB_NAME', 'wordpress' );
+```
+
+
+To prevent FPT uploads (for security reasons), I added the following to the end of the file:
+```
+define('FS_METHOD','direct');
+```
+
+### Step 6: Fix that URL
+Because my WordPress files are located in `/var/www/html/wordpress`, my library website is at a URL ending with `wordpress`:
+```
+http://11.111.111.11/wordpress
+```
+I don't want my patrons navigating to a URL with WordPress in it. 
+
+I opted to change the name to **library**. 
+```
+sudo mv /var/www/html/wordpress /var/www/html/library
+```
+
+### Step 7: Change File Ownership
+WordPress will be writing files in that `/library` directory. I needed to change the ownership of that directory to the Apache **www-data** user:
+```
+sudo chown -R www-data:www-data /var/www/html/library
+```
+### Step 8: Run the Install Script
+In a browser (Woah! GUI time!), I went to my new website:
+```
+http://11.111.111.11/library/
+```
+From here, I followed the installation steps on the Welcome screen. I set up my site name and my admin username and password for this website. 
+
+From here, I spent time playing with themes and looking at plugins. I'm saving more organizational and aesthetic changes for after my digital library and OPAC are able to be linked on this homepage. 
